@@ -1,0 +1,9 @@
+{
+  "name": "campus-quest",
+  "version": "1.0.0",
+  "description": "Campus Quest - an educational website-building game with an admin portal",
+  "main": "server.js",
+  "scripts": { "start": "node server.js", "test": "node tests/api-test.js" },
+  "engines": { "node": ">=22.13.0" },
+  "license": "UNLICENSED"
+}

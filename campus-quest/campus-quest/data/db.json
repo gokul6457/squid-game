@@ -1,0 +1,30 @@
+{
+ "participants": [
+  {
+   "id": "eea7cbae36e937b70f22fa8e",
+   "name": "gokul",
+   "rollNo": "243013",
+   "team": "tech",
+   "registeredAt": 1792462979381,
+   "startedAt": 1792462982096,
+   "finishedAt": 1792463709902,
+   "score": 0,
+   "right": 1,
+   "wrong": 3,
+   "seconds": 727
+  },
+  {
+   "id": "8a9a1c02806008abeea68365",
+   "name": "JEEVAN1234",
+   "rollNo": "2673242431234",
+   "team": "PEAKY BLINDERS",
+   "registeredAt": 1792753003624,
+   "startedAt": 1792753136906,
+   "finishedAt": null,
+   "score": 0,
+   "right": 0,
+   "wrong": 0,
+   "seconds": 0
+  }
+ ]
+}

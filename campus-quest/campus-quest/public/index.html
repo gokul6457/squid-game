@@ -1,0 +1,79 @@
+<!doctype html>
+<html lang="en">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width,initial-scale=1">
+<title>Campus Quest - Code Debug Challenge</title>
+<link rel="icon" href="data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 100 100'%3E%3Ctext y='.9em' font-size='90'%3E%F0%9F%8F%AB%3C/text%3E%3C/svg%3E">
+<link rel="stylesheet" href="style.css">
+</head>
+<body>
+<header class="top">
+  <div class="brand"><div class="logo">🏫</div><div><h1>CAMPUS QUEST</h1><small id="teamSubtitle">Build the college website</small></div></div>
+  <div class="spacer"></div>
+  <div class="chips">
+    <div class="chip hidden" id="chipPlayer"><span id="pName"></span><span style="color:var(--mut)">·</span><span id="pTeam" style="color:var(--mut)"></span></div>
+    <div class="chip hidden" id="chipTime">⏱ <b id="timer">00:00</b></div>
+    <div class="chip score hidden" id="chipScore">🏆 Score <b id="sScore">0</b><span>/ 100</span><span style="color:var(--mut)">·</span>⏱ <b id="sTime">00:00</b><span class="hide-s" style="color:var(--mut)" id="sDetail"></span></div>
+  </div>
+</header>
+
+<main id="main">
+  <section class="card" id="regCard">
+    <div id="authChoice">
+      <h2>Join Campus Quest</h2>
+      <p class="sub">Sign in to continue, or register a new player account.</p>
+      <div class="authActions">
+        <button class="btn" id="chooseSignIn" type="button">Sign in</button>
+        <button class="btn secondary" id="chooseRegister" type="button">Register</button>
+      </div>
+    </div>
+    <section id="signInView" class="hidden">
+      <h2>Sign in</h2>
+      <p class="sub">Use the email and password you registered with.</p>
+      <form id="loginForm" autocomplete="on">
+        <label for="loginEmail">Email</label>
+        <input type="email" id="loginEmail" maxlength="254" autocomplete="email" required>
+        <label for="loginPassword">Password</label>
+        <input type="password" id="loginPassword" minlength="8" maxlength="128" autocomplete="current-password" required>
+        <button class="btn" id="loginBtn" type="submit">Sign in and play</button>
+        <div class="err" id="loginErr"></div>
+      </form>
+      <button class="linkBtn" id="toRegister" type="button">New player? Register</button>
+      <button class="linkBtn authBack" data-back="signin" type="button">Back</button>
+    </section>
+    <section id="registerView" class="hidden">
+      <h2>Register</h2>
+      <p class="sub">Create your player account. Then sign in to start the game.</p>
+      <form id="registerForm" autocomplete="on">
+        <label for="registerTeam">Team name</label>
+        <input type="text" id="registerTeam" maxlength="40" autocomplete="organization" required>
+        <label for="registerEmail">Email</label>
+        <input type="email" id="registerEmail" maxlength="254" autocomplete="email" required>
+        <label for="registerPassword">Password (at least 8 characters)</label>
+        <input type="password" id="registerPassword" minlength="8" maxlength="128" autocomplete="new-password" required>
+        <button class="btn" id="registerBtn" type="submit">Create account</button>
+        <div class="err" id="registerErr"></div>
+      </form>
+      <button class="linkBtn" id="toSignIn" type="button">Already registered? Sign in</button>
+      <button class="linkBtn authBack" data-back="register" type="button">Back</button>
+    </section>
+  </section>
+
+  <section id="stage" class="hidden">
+    <div class="loading" id="loading">LOADING GAME…</div>
+    <canvas id="gameCanvas" tabindex="0" width="1280" height="720"></canvas>
+    <div id="timeoutOverlay" class="timeoutOverlay hidden" role="alert" aria-live="assertive">
+      <div class="timeoutCard"><div class="timeoutIcon">⌛</div><h2 id="endTitle">TIME OUT</h2><p id="endMessage">20 minutes are up. Your game has ended.</p><button class="btn hidden" id="resumeGame" type="button">Return to the game</button></div>
+    </div>
+  </section>
+</main>
+
+<footer id="foot">Controls: <b>WASD</b> move · <b>Shift</b> run · <b>Z / X</b> zoom · <b>E / Q</b> stairs &amp; hub · <b>B</b> bag · click the game once if the keys do not respond</footer>
+<div class="toast hidden" id="toast"></div>
+
+<script src="js/font.js"></script>
+<script src="js/game.js"></script>
+<script src="js/app.js"></script>
+</body>
+</html>

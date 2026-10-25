@@ -1,0 +1,53 @@
+<!doctype html>
+<html lang="en">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width,initial-scale=1">
+<meta name="robots" content="noindex">
+<title>Campus Quest - Admin Portal</title>
+<link rel="icon" href="data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 100 100'%3E%3Ctext y='.9em' font-size='90'%3E%F0%9F%94%90%3C/text%3E%3C/svg%3E">
+<link rel="stylesheet" href="style.css">
+</head>
+<body>
+<header class="top">
+  <div class="brand"><div class="logo">🔐</div><div><h1>ADMIN PORTAL</h1><small>Campus Quest · staff only</small></div></div>
+  <div class="spacer"></div>
+  <div class="chips"><div class="chip hidden" id="updated">Updated <b id="updTime">-</b></div><button class="ghost hidden" id="logout">Log out</button></div>
+</header>
+
+<main id="loginBox">
+  <section class="card">
+    <h2>Staff login</h2>
+    <p class="sub">Enter the admin password to see registrations, scores and finishing times.</p>
+    <form id="loginForm">
+      <label for="pw">Password</label>
+      <input type="password" id="pw" autocomplete="current-password" required autofocus>
+      <button class="btn" id="loginBtn" type="submit">Log in</button>
+      <div class="err" id="loginErr"></div>
+    </form>
+    <p class="sub" style="margin:14px 0 0"><a href="/" style="color:var(--mut)">← Back to the game</a></p>
+  </section>
+</main>
+
+<div class="wrap hidden" id="dash">
+  <div class="cards">
+    <div class="stat"><span>Registered</span><b id="cReg">0</b></div>
+    <div class="stat"><span>Playing now</span><b id="cPlay">0</b></div>
+    <div class="stat"><span>Finished</span><b id="cFin">0</b></div>
+    <div class="stat"><span>Teams</span><b id="cTeams">0</b></div>
+  </div>
+  <div class="tabs">
+    <button class="tab on" data-tab="reg">Registrations</button>
+    <button class="tab" data-tab="ind">Individual results</button>
+    <button class="tab" data-tab="team">Team results</button>
+    <span class="spacer"></span>
+    <button class="ghost" id="csv">⬇ Download CSV</button>
+  </div>
+  <p class="err hidden" id="apiWarning" role="alert">This admin page is connected to an older server. Stop the existing server, start the updated server.js from this ZIP, then refresh this page.</p>
+  <div class="tablebox" id="tableBox"></div>
+  <p style="color:var(--mut);font-size:13px;margin-top:14px;line-height:1.6">
+    Ranking: higher score first; if equal, the shorter time wins. Team ranking uses the <b>average score</b> of finished members. Correct and wrong totals include finished games. Score = 10 marks for each correct component, minus 10 for each wrong one (out of 100). Time played runs from game start to completion (or the current time while playing). Passwords are stored securely and cannot be viewed here; use <b>Reset password</b> to set a new password for a player who forgot theirs. This page refreshes every 5 seconds.</p>
+</div>
+<script src="js/admin.js"></script>
+</body>
+</html>
